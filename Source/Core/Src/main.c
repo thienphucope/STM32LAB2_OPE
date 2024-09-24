@@ -22,7 +22,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "software_timer.h"
+#include "global.h"
 //#include "button.h"
 /* USER CODE END Includes */
 
@@ -95,11 +95,12 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-
+  setTimer(0, 50);
+  status = 0;
   while (1)
   {
     /* USER CODE END WHILE */
-
+	  run();
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
