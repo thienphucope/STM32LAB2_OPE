@@ -96,13 +96,14 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   setTimer(0, 50);
+  setTimer(1, 100);
   status = 0;
   while (1)
   {
     /* USER CODE END WHILE */
 	  run();
     /* USER CODE BEGIN 3 */
-	  //FREQUENCY OF SCANNING PROCESS IS 1Hz
+	  //FREQUENCY OF SCANNING PROCESS IS 0.5Hz
   }
   /* USER CODE END 3 */
 }
