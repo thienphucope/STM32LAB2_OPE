@@ -11,9 +11,6 @@
 #include "led7.h"
 #include "software_timer.h"
 
-extern int counter;
-extern int blink;
-
 
 extern const int MAX_LED;
 extern int index_led;
@@ -24,5 +21,5 @@ void update7SEG(int index);
 extern int hour;
 extern int minute;
 extern int second;
-void updateCLockBuffer();
+void updateClockBuffer();
 #endif /* INC_GLOBAL_H_ */

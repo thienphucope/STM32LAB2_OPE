@@ -6,8 +6,6 @@
  */
 #include "global.h"
 
-int counter = 25;
-int blink = 100;
 
 const int MAX_LED = 4;  // We've got 4 segments to play with
 int index_led = 0;      // Keeps track of which 7-segment display to update
