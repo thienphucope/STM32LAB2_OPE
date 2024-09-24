@@ -102,6 +102,7 @@ int main(void)
     /* USER CODE END WHILE */
 	  run();
     /* USER CODE BEGIN 3 */
+	  //FREQUENCY OF SCANNING PROCESS IS 1Hz
   }
   /* USER CODE END 3 */
 }
