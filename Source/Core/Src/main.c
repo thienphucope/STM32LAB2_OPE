@@ -95,13 +95,13 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  setTimer(0, 50);
-  setTimer(1, 100);
-  status = 0;
+  //setTimer(0, 50);
+  //setTimer(1, 100);
+  //status = 0;
   while (1)
   {
     /* USER CODE END WHILE */
-	  run();
+	  //run();
     /* USER CODE BEGIN 3 */
 	  //FREQUENCY OF SCANNING PROCESS IS 0.5Hz
   }
@@ -246,6 +246,12 @@ static void MX_GPIO_Init(void)
 	void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 	{
 		timerRun();
+
+		update7SEG(index_led);     // Call the update function for current index
+		        index_led++;               // Move to the next segment
+		        if (index_led >= MAX_LED) {
+		            index_led = 0;         // Reset the index to stay in the valid range
+		        }
 	}
 /* USER CODE END 4 */
 

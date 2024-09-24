@@ -105,3 +105,6 @@ void display7SEG(int num)
 		break;
 	}
 }
+
+
+

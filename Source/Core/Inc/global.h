@@ -13,4 +13,10 @@
 extern int status;
 void run();
 
+
+extern const int MAX_LED;
+extern int index_led;
+extern int led_buffer[4];
+
+void update7SEG(int index);
 #endif /* INC_GLOBAL_H_ */
