@@ -240,21 +240,36 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
 }
-
+int counter = 25;
+int blink = 100;
 /* USER CODE BEGIN 4 */
 
 	void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 	{
 		timerRun();
-
-		update7SEG(index_led);     // Call the update function for current index
-		        index_led++;               // Move to the next segment
-		        if (index_led >= MAX_LED) {
-		            index_led = 0;         // Reset the index to stay in the valid range
-		        }
+		if (counter >= 0)
+		{
+			counter--;
+			if (counter <=0)
+			{
+				counter = 25;
+				update7SEG(index_led);     // Call the update function for current index
+						index_led++;               // Move to the next segment
+						if (index_led >= MAX_LED) {
+						     index_led = 0;         // Reset the index to stay in the valid range
+						        }
+			}
+		}
+		if (blink >= 0)
+		{
+			blink--;
+			if (blink <= 0)
+			{
+				blink = 100;
+				HAL_GPIO_TogglePin(DOT_GPIO_Port, DOT_Pin);
+			}
+		}
 	}
-/* USER CODE END 4 */
-
 /**
   * @brief  This function is executed in case of error occurrence.
   * @retval None
