@@ -5,6 +5,6 @@
  *      Author: HPVictus
  */
 #include "global.h"
-int counter;
-int status;
+int counter = 50;
+int status = 0;
 
