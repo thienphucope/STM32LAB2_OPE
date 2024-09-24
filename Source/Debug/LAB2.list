@@ -27,23 +27,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  11 .ARM.attributes 00000029  00000000  00000000  00020030  2**0
                   CONTENTS, READONLY
- 12 .debug_info   00008aac  00000000  00000000  00020059  2**0
+ 12 .debug_info   00008a8f  00000000  00000000  00020059  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 13 .debug_abbrev 0000173d  00000000  00000000  00028b05  2**0
+ 13 .debug_abbrev 00001723  00000000  00000000  00028ae8  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_aranges 00000978  00000000  00000000  0002a248  2**3
+ 14 .debug_aranges 00000978  00000000  00000000  0002a210  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_ranges 000008b0  00000000  00000000  0002abc0  2**3
+ 15 .debug_ranges 000008b0  00000000  00000000  0002ab88  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_macro  000166e4  00000000  00000000  0002b470  2**0
+ 16 .debug_macro  000166e4  00000000  00000000  0002b438  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   0000b3fd  00000000  00000000  00041b54  2**0
+ 17 .debug_line   0000b3fd  00000000  00000000  00041b1c  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    0008229e  00000000  00000000  0004cf51  2**0
+ 18 .debug_str    0008229e  00000000  00000000  0004cf19  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000053  00000000  00000000  000cf1ef  2**0
+ 19 .comment      00000053  00000000  00000000  000cf1b7  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00002650  00000000  00000000  000cf244  2**2
+ 20 .debug_frame  00002650  00000000  00000000  000cf20c  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -806,7 +806,7 @@ int main(void)
 	  HAL_Delay(1000);
  800066a:	f44f 707a 	mov.w	r0, #1000	; 0x3e8
  800066e:	f000 fa4d 	bl	8000b0c <HAL_Delay>
-  {
+	  second++;
  8000672:	e7d4      	b.n	800061e <main+0x1a>
  8000674:	20000050 	.word	0x20000050
  8000678:	20000020 	.word	0x20000020

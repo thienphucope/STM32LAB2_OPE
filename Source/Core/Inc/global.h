@@ -23,5 +23,5 @@ void update7SEG(int index);
 extern int hour;
 extern int minute;
 extern int second;
-void updateCLockBuffer();
+void updateClockBuffer();
 #endif /* INC_GLOBAL_H_ */
