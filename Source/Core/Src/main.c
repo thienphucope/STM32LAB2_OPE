@@ -95,10 +95,6 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  //setTimer(0, 50);
-  //setTimer(1, 100);
-  //status = 0;
-  hour = 15, minute = 8, second = 50;
   while (1)
   {
     /* USER CODE END WHILE */
@@ -253,13 +249,11 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
 }
-int counter = 25;
-int blink = 100;
 /* USER CODE BEGIN 4 */
 
 	void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 	{
-		//timerRun();
+
 		if (counter >= 0)
 		{
 			counter--;
