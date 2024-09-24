@@ -6,6 +6,6 @@
  */
 #include "global.h"
 
-int status;
-int counter;
-int blink;
+int status = 0;
+int counter = 50;
+int blink = 100;
