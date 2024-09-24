@@ -98,12 +98,25 @@ int main(void)
   //setTimer(0, 50);
   //setTimer(1, 100);
   //status = 0;
+  hour = 15, minute = 8, second = 50;
   while (1)
   {
     /* USER CODE END WHILE */
-	  //run();
+
     /* USER CODE BEGIN 3 */
 	  //FREQUENCY OF SCANNING PROCESS IS 0.5Hz
+	  second++;
+	  if (second >= 60){
+		  second = 0;
+		  minute++;
+	  }
+	  if (minute >= 60){
+		  minute = 0;
+		  hour++;
+	  }
+	  if (hour >= 24) hour = 0;
+	  updateClockBuffer();
+	  HAL_Delay(1000);
   }
   /* USER CODE END 3 */
 }
@@ -246,7 +259,7 @@ int blink = 100;
 
 	void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 	{
-		timerRun();
+		//timerRun();
 		if (counter >= 0)
 		{
 			counter--;

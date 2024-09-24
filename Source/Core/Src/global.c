@@ -11,7 +11,7 @@ int status;
 const int MAX_LED = 4;  // We've got 4 segments to play with
 int index_led = 0;      // Keeps track of which 7-segment display to update
 int led_buffer[4] = {5, 6, 7, 8};  // Buffer holds values for each segment
-
+int hour = 15, minute = 8, second = 50;
 void update7SEG(int index) {
     switch (index) {
         case 0:
@@ -52,6 +52,12 @@ void update7SEG(int index) {
             // Just in case something wild happens and index is out of range
             break;
     }
+}
+void updateClockBuffer(){
+	led_buffer[0] = hour/10;
+	led_buffer[1] = hour%10;
+	led_buffer[2] = minute/10;
+	led_buffer[3] = minute%10;
 }
 /*void run()
 {

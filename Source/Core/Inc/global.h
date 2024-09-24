@@ -19,4 +19,9 @@ extern int index_led;
 extern int led_buffer[4];
 
 void update7SEG(int index);
+
+extern int hour;
+extern int minute;
+extern int second;
+void updateCLockBuffer();
 #endif /* INC_GLOBAL_H_ */
