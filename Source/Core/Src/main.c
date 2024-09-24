@@ -95,14 +95,12 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  setTimer(0, 50);
-  setTimer(1, 100);
-  status = 0;
   while (1)
   {
     /* USER CODE END WHILE */
-	  run();
+
     /* USER CODE BEGIN 3 */
+	  HAL_Delay(1000);
 	  //FREQUENCY OF SCANNING PROCESS IS 0.5Hz
   }
   /* USER CODE END 3 */
@@ -242,10 +240,65 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-
+counter = 50;
+status = 0;
+blink = 100;
 	void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 	{
-		timerRun();
+		if (counter >= 0)
+						{
+							counter--;
+							if (counter <=0)
+							{
+								counter = 50;
+								switch (status)
+										  {
+										  case 0:
+											  HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, RESET);
+											  HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, SET);
+											  HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin, SET);
+											  HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin, SET);
+											  display7SEG(1);
+											  status = 1;
+											  break;
+										  case 1:
+											  HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, SET);
+											  HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, RESET);
+											  HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin, SET);
+											  HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin, SET);
+											  display7SEG(2);
+											  status = 2;
+											  break;
+										  case 2:
+											  HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, SET);
+											  HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, SET);
+											  HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin, RESET);
+											  HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin, SET);
+											  display7SEG(3);
+											  status = 3;
+											  break;
+										  case 3:
+											  HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, SET);
+											  HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, SET);
+											  HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin, SET);
+											  HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin, RESET);
+											  display7SEG(0);
+											  status = 0;
+											  break;
+										  default:
+											  break;
+										  }
+							}
+						}
+		if (blink >= 0)
+				{
+					blink--;
+					if (blink <= 0)
+					{
+						blink = 100;
+						HAL_GPIO_TogglePin(DOT_GPIO_Port, DOT_Pin);
+					}
+				}
 	}
 /* USER CODE END 4 */
 
