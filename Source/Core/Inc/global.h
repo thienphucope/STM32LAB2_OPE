@@ -9,10 +9,9 @@
 #define INC_GLOBAL_H_
 #include "main.h"
 #include "led7.h"
-#include "software_timer.h"
-extern int status;
-void run();
 
+extern int counter;
+extern int blink;
 
 extern const int MAX_LED;
 extern int index_led;
