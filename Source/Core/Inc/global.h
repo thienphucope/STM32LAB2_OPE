@@ -9,6 +9,7 @@
 #define INC_GLOBAL_H_
 #include "main.h"
 #include "led7.h"
+#include "software_timer.h"
 
 extern int counter;
 extern int blink;

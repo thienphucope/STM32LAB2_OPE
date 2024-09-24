@@ -95,13 +95,14 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  setTimer(0, 200);
   while (1)
   {
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
 	  //FREQUENCY OF SCANNING PROCESS IS 0.5Hz
-	  second++;
+	  /*second++;
 	  if (second >= 60){
 		  second = 0;
 		  minute++;
@@ -112,7 +113,11 @@ int main(void)
 	  }
 	  if (hour >= 24) hour = 0;
 	  updateClockBuffer();
-	  HAL_Delay(1000);
+	  HAL_Delay(1000);*/
+	  if (timer_flag[0] == 1) {
+		  HAL_GPIO_TogglePin(RED_LED_GPIO_Port, RED_LED_Pin);
+		  setTimer(0, 200);
+	  }
   }
   /* USER CODE END 3 */
 }
@@ -253,7 +258,8 @@ static void MX_GPIO_Init(void)
 
 	void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 	{
-
+		timerRun();
+		/*
 		if (counter >= 0)
 		{
 			counter--;
@@ -275,7 +281,7 @@ static void MX_GPIO_Init(void)
 				blink = 100;
 				HAL_GPIO_TogglePin(DOT_GPIO_Port, DOT_Pin);
 			}
-		}
+		}*/
 	}
 /**
   * @brief  This function is executed in case of error occurrence.
