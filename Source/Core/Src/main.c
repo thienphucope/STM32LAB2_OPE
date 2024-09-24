@@ -95,13 +95,13 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  setTimer(0, 50);
-  status = 0;
+
   while (1)
   {
     /* USER CODE END WHILE */
-	  run();
+
     /* USER CODE BEGIN 3 */
+	  HAL_Delay(1000);
 	  //FREQUENCY OF SCANNING PROCESS IS 1Hz
   }
   /* USER CODE END 3 */
@@ -241,10 +241,34 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-
-	void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
-	{
-		timerRun();
+counter = 50;
+status = 0;
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
+		if (counter >= 0)
+				{
+					counter--;
+					if (counter <=0)
+					{
+						counter = 50;
+						switch (status)
+								  {
+								  case 0:
+									  HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, RESET);
+									  HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, SET);
+									  display7SEG(1);
+									  status = 1;
+									  break;
+								  case 1:
+									  HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, SET);
+									  HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, RESET);
+									  display7SEG(2);
+									  status = 0;
+									  break;
+								  default:
+									  break;
+								  }
+					}
+				}
 	}
 /* USER CODE END 4 */
 
