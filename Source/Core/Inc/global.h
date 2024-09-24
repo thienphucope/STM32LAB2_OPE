@@ -10,8 +10,6 @@
 #include "main.h"
 #include "led7.h"
 
-extern int status;
-
 extern const int MAX_LED;
 extern int index_led;
 extern int led_buffer[4];

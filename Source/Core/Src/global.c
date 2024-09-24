@@ -6,8 +6,6 @@
  */
 #include "global.h"
 
-int status;
-
 const int MAX_LED = 4;  // We've got 4 segments to play with
 int index_led = 0;      // Keeps track of which 7-segment display to update
 int led_buffer[4] = {5, 6, 7, 8};  // Buffer holds values for each segment

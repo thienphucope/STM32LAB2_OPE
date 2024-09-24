@@ -19,7 +19,6 @@ uwTick              0x4               ./Drivers/STM32F1xx_HAL_Driver/Src/stm32f1
 pFlash              0x20              ./Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.o
 timer_flag          0x28              ./Core/Src/software_timer.o
 htim2               0x48              ./Core/Src/main.o
-status              0x4               ./Core/Src/global.o
 
 Discarded input sections
 
@@ -73,7 +72,6 @@ Discarded input sections
  .text          0x0000000000000000        0x0 ./Core/Src/global.o
  .data          0x0000000000000000        0x0 ./Core/Src/global.o
  .bss           0x0000000000000000        0x0 ./Core/Src/global.o
- COMMON         0x0000000000000000        0x4 ./Core/Src/global.o
  .group         0x0000000000000000        0xc ./Core/Src/led7.o
  .group         0x0000000000000000        0xc ./Core/Src/led7.o
  .group         0x0000000000000000        0xc ./Core/Src/led7.o
@@ -2782,20 +2780,20 @@ LOAD d:/documents/my 241/microprosessors and microcontroller/labs/stm32cube/stm3
 LOAD d:/documents/my 241/microprosessors and microcontroller/labs/stm32cube/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libm.a
 LOAD d:/documents/my 241/microprosessors and microcontroller/labs/stm32cube/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7-m/nofp\libgcc.a
 
-.debug_info     0x0000000000000000     0x89e5
- .debug_info    0x0000000000000000      0x2cc ./Core/Src/global.o
- .debug_info    0x00000000000002cc      0x24f ./Core/Src/led7.o
- .debug_info    0x000000000000051b      0xbd9 ./Core/Src/main.o
- .debug_info    0x00000000000010f4      0xa09 ./Core/Src/stm32f1xx_hal_msp.o
- .debug_info    0x0000000000001afd      0x7b9 ./Core/Src/stm32f1xx_it.o
- .debug_info    0x00000000000022b6      0x2be ./Core/Src/system_stm32f1xx.o
- .debug_info    0x0000000000002574       0x22 ./Core/Startup/startup_stm32f103c6ux.o
- .debug_info    0x0000000000002596      0x74c ./Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o
- .debug_info    0x0000000000002ce2      0xbbe ./Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o
- .debug_info    0x00000000000038a0      0x701 ./Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o
- .debug_info    0x0000000000003fa1      0x893 ./Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
- .debug_info    0x0000000000004834     0x2c32 ./Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o
- .debug_info    0x0000000000007466     0x157f ./Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o
+.debug_info     0x0000000000000000     0x89bf
+ .debug_info    0x0000000000000000      0x2b2 ./Core/Src/global.o
+ .debug_info    0x00000000000002b2      0x24f ./Core/Src/led7.o
+ .debug_info    0x0000000000000501      0xbcd ./Core/Src/main.o
+ .debug_info    0x00000000000010ce      0xa09 ./Core/Src/stm32f1xx_hal_msp.o
+ .debug_info    0x0000000000001ad7      0x7b9 ./Core/Src/stm32f1xx_it.o
+ .debug_info    0x0000000000002290      0x2be ./Core/Src/system_stm32f1xx.o
+ .debug_info    0x000000000000254e       0x22 ./Core/Startup/startup_stm32f103c6ux.o
+ .debug_info    0x0000000000002570      0x74c ./Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o
+ .debug_info    0x0000000000002cbc      0xbbe ./Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o
+ .debug_info    0x000000000000387a      0x701 ./Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o
+ .debug_info    0x0000000000003f7b      0x893 ./Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
+ .debug_info    0x000000000000480e     0x2c32 ./Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o
+ .debug_info    0x0000000000007440     0x157f ./Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o
 
 .debug_abbrev   0x0000000000000000     0x170b
  .debug_abbrev  0x0000000000000000      0x121 ./Core/Src/global.o
@@ -2922,11 +2920,11 @@ LOAD d:/documents/my 241/microprosessors and microcontroller/labs/stm32cube/stm3
 
 .debug_str      0x0000000000000000    0x8226b
  .debug_str     0x0000000000000000    0x7f8ff ./Core/Src/global.o
-                                      0x7fc43 (size before relaxing)
+                                      0x7fc3c (size before relaxing)
  .debug_str     0x000000000007f8ff       0x1f ./Core/Src/led7.o
                                       0x7fc09 (size before relaxing)
  .debug_str     0x000000000007f91e      0x6fb ./Core/Src/main.o
-                                      0x803c2 (size before relaxing)
+                                      0x803bb (size before relaxing)
  .debug_str     0x0000000000080019      0x2ba ./Core/Src/stm32f1xx_hal_msp.o
                                       0x803d1 (size before relaxing)
  .debug_str     0x00000000000802d3       0xcd ./Core/Src/stm32f1xx_it.o
