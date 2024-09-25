@@ -1,0 +1,4 @@
+global.c:14:6:update7SEG	16	static
+global.c:60:7:updateLEDMatrix	16	static
+global.c:215:6:updateMatrixBuffer	4	static
+global.c:226:6:updateClockBuffer	4	static
