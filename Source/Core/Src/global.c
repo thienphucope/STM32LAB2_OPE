@@ -52,6 +52,32 @@ void update7SEG(int index) {
             break;
     }
 }
+
+	const int MAX_LED_MATRIX = 8;
+	int index_led_matrix = 0;
+	uint8_t matrix_buffer[8] = {0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08};
+
+	void updateLEDMatrix(int index) {
+	    switch (index) {
+	        case 0:
+	            // Set the appropriate bits in matrix_buffer for character "A"
+	            matrix_buffer[0] = 0b00111100;
+	            matrix_buffer[1] = 0b01000010;
+	            matrix_buffer[2] = 0b01000010;
+	            matrix_buffer[3] = 0b01111110;
+	            matrix_buffer[4] = 0b01000010;
+	            matrix_buffer[5] = 0b01000010;
+	            matrix_buffer[6] = 0b01000010;
+	            matrix_buffer[7] = 0b00000000;
+	            break;
+	        // Add cases for other indices if needed
+	        default:
+	            // Handle invalid index (optional)
+	            break;
+	    }
+	}
+
+
 void updateClockBuffer(){
 	led_buffer[0] = hour/10;
 	led_buffer[1] = hour%10;
