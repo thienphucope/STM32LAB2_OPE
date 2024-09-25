@@ -1,3 +1,4 @@
+"./Core/Src/LEDMatrix.o"
 "./Core/Src/global.o"
 "./Core/Src/led7.o"
 "./Core/Src/main.o"

@@ -20,10 +20,12 @@ extern const int MAX_LED_MATRIX;
 extern int index_led_matrix;
 extern uint8_t matrix_buffer[8];
 
+
 void update7SEG(int index);
 void updateLEDMatrix(int index);
 extern int hour;
 extern int minute;
 extern int second;
 void updateClockBuffer();
+void updateMatrixBuffer();
 #endif /* INC_GLOBAL_H_ */

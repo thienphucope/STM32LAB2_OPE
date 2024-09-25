@@ -122,14 +122,13 @@ int main(void)
 	  if (timer_flag[1] == 1){
 	  		  setTimer(1, 25);
 	  		  update7SEG(index_led);     // Call the update function for current index
+	  		  updateLEDMatrix(index_led_matrix);
 	  		  index_led++;               // Move to the next segment
+	  		  index_led_matrix++;
+	  		  if (index_led_matrix >= MAX_LED_MATRIX) index_led_matrix = 0;
 	  		  if (index_led >= MAX_LED) index_led = 0;// Reset the index to stay in the valid range
 	  }
 
-	  if (timer_flag[2] == 1)
-	  {
-		  updateLEDMatrix(0);
-	  }
 
   }
   /* USER CODE END 3 */

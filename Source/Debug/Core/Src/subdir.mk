@@ -5,6 +5,7 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../Core/Src/LEDMatrix.c \
 ../Core/Src/global.c \
 ../Core/Src/led7.c \
 ../Core/Src/main.c \
@@ -16,6 +17,7 @@ C_SRCS += \
 ../Core/Src/system_stm32f1xx.c 
 
 OBJS += \
+./Core/Src/LEDMatrix.o \
 ./Core/Src/global.o \
 ./Core/Src/led7.o \
 ./Core/Src/main.o \
@@ -27,6 +29,7 @@ OBJS += \
 ./Core/Src/system_stm32f1xx.o 
 
 C_DEPS += \
+./Core/Src/LEDMatrix.d \
 ./Core/Src/global.d \
 ./Core/Src/led7.d \
 ./Core/Src/main.d \
