@@ -54,7 +54,9 @@ void update7SEG(int index) {
 
 	const int MAX_LED_MATRIX = 8;
 	int index_led_matrix = 0;
-	uint8_t matrix_buffer[8] = {0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08};
+	uint8_t matrix_buffer[8] = {0b00000000, 0b00011000, 0b00100100, 0b01000010, 0b01111110, 0b01000010, 0b01000010, 0b01000010};
+	uint8_t space1 = 0b00000000, space2 = 0b00000000, space3 = 0b00000000, temp = 0b00000000;
+
 
 	void updateLEDMatrix(int index) {
 	    switch (index) {
@@ -220,14 +222,20 @@ void update7SEG(int index) {
 
 void updateMatrixBuffer()
 {
-	matrix_buffer[0] = 0b00000000;
-	matrix_buffer[1] = 0b00011000;
-    matrix_buffer[2] = 0b00100100;
-    matrix_buffer[3] = 0b01000010;
-    matrix_buffer[4] = 0b01111110;
-    matrix_buffer[5] = 0b01000010;
-    matrix_buffer[6] = 0b01000010;
-    matrix_buffer[7] = 0b01000010;
+
+	temp = matrix_buffer[0];
+	matrix_buffer[0] = matrix_buffer[1];
+	matrix_buffer[1] = matrix_buffer[2];
+    matrix_buffer[2] = matrix_buffer[3];
+    matrix_buffer[3] = matrix_buffer[4];
+    matrix_buffer[4] = matrix_buffer[5];
+    matrix_buffer[5] = matrix_buffer[6];
+    matrix_buffer[6] = matrix_buffer[7];
+    matrix_buffer[7] = space1;
+    space1 = space2;
+    space2 = space3;
+    space3 = temp;
+
 
 
 }

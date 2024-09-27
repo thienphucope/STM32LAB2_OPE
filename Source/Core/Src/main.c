@@ -97,6 +97,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   setTimer(0, 100);
   setTimer(1, 5);
+  setTimer(2, 100);
   while (1)
   {
     /* USER CODE END WHILE */
@@ -129,12 +130,22 @@ int main(void)
 	  			        	HAL_GPIO_WritePin(ENM6_GPIO_Port, ENM6_Pin, 1);
 	  			        	HAL_GPIO_WritePin(ENM7_GPIO_Port, ENM7_Pin, 1);
 	  		  //update7SEG(index_led);     // Call the update function for current index
-	  		  updateMatrixBuffer();
+
 	  		  updateLEDMatrix(index_led_matrix);
 	  		  //index_led++;               // Move to the next segment
 	  		  index_led_matrix++;
-	  		  if (index_led_matrix >= MAX_LED_MATRIX) index_led_matrix = 0;
+	  		  if (index_led_matrix >= MAX_LED_MATRIX) {
+
+	  			index_led_matrix = 0;
+	  		  }
+
 	  		  //if (index_led >= MAX_LED) index_led = 0;// Reset the index to stay in the valid range
+	  }
+
+	  if (timer_flag[2] == 1)
+	  {
+		  setTimer(2, 100);
+		  updateMatrixBuffer();
 	  }
 
   }
