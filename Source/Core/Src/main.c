@@ -240,14 +240,21 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-
+int count = 50;
 	void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 	{
+		if ( count >= 0) {
+			count--;
+		if (count <0 )
+		{
+			count = 50;
 		update7SEG(index_led);     // Call the update function for current index
 		        index_led++;               // Move to the next segment
 		        if (index_led >= MAX_LED) {
 		            index_led = 0;         // Reset the index to stay in the valid range
 		        }
+		}
+		}
 	}
 /* USER CODE END 4 */
 
