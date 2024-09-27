@@ -6,7 +6,6 @@
  */
 #include "global.h"
 
-
 const int MAX_LED = 4;  // We've got 4 segments to play with
 int index_led = 0;      // Keeps track of which 7-segment display to update
 int led_buffer[4] = {5, 6, 7, 8};  // Buffer holds values for each segment
@@ -70,14 +69,14 @@ void update7SEG(int index) {
 	        	HAL_GPIO_WritePin(ROW6_GPIO_Port, ROW6_Pin, SET);
 	        	HAL_GPIO_WritePin(ROW7_GPIO_Port, ROW7_Pin, SET);
 
-	        	if (matrix_buffer[index] & (1 << 0)) HAL_GPIO_WritePin(ENM0_GPIO_Port, ENM0_Pin, 1);
-	        	if (matrix_buffer[index] & (1 << 1)) HAL_GPIO_WritePin(ENM1_GPIO_Port, ENM1_Pin, 1);
-	        	if (matrix_buffer[index] & (1 << 2)) HAL_GPIO_WritePin(ENM2_GPIO_Port, ENM2_Pin, 1);
-	        	if (matrix_buffer[index] & (1 << 3)) HAL_GPIO_WritePin(ENM3_GPIO_Port, ENM3_Pin, 1);
-	        	if (matrix_buffer[index] & (1 << 4)) HAL_GPIO_WritePin(ENM4_GPIO_Port, ENM4_Pin, 1);
-	        	if (matrix_buffer[index] & (1 << 5)) HAL_GPIO_WritePin(ENM5_GPIO_Port, ENM5_Pin, 1);
-	        	if (matrix_buffer[index] & (1 << 6)) HAL_GPIO_WritePin(ENM6_GPIO_Port, ENM6_Pin, 1);
-	        	if (matrix_buffer[index] & (1 << 7)) HAL_GPIO_WritePin(ENM7_GPIO_Port, ENM7_Pin, 1);
+	        	if ((matrix_buffer[index] & 0b00000001) ) HAL_GPIO_WritePin(ENM0_GPIO_Port, ENM0_Pin, 0);
+	        	if ((matrix_buffer[index] & 0b00000010) ) HAL_GPIO_WritePin(ENM1_GPIO_Port, ENM1_Pin, 0);
+	        	if ((matrix_buffer[index] & 0b00000100) ) HAL_GPIO_WritePin(ENM2_GPIO_Port, ENM2_Pin, 0);
+	        	if ((matrix_buffer[index] & 0b00001000) ) HAL_GPIO_WritePin(ENM3_GPIO_Port, ENM3_Pin, 0);
+	        	if ((matrix_buffer[index] & 0b00010000) ) HAL_GPIO_WritePin(ENM4_GPIO_Port, ENM4_Pin, 0);
+	        	if ((matrix_buffer[index] & 0b00100000) ) HAL_GPIO_WritePin(ENM5_GPIO_Port, ENM5_Pin, 0);
+	        	if ((matrix_buffer[index] & 0b01000000) ) HAL_GPIO_WritePin(ENM6_GPIO_Port, ENM6_Pin, 0);
+	        	if ((matrix_buffer[index] & 0b10000000) ) HAL_GPIO_WritePin(ENM7_GPIO_Port, ENM7_Pin, 0);
 	            break;
 	        case 1:
 	        	HAL_GPIO_WritePin(ROW0_GPIO_Port, ROW0_Pin, SET);
@@ -88,14 +87,15 @@ void update7SEG(int index) {
 	        	HAL_GPIO_WritePin(ROW5_GPIO_Port, ROW5_Pin, SET);
 	        	HAL_GPIO_WritePin(ROW6_GPIO_Port, ROW6_Pin, SET);
 	        	HAL_GPIO_WritePin(ROW7_GPIO_Port, ROW7_Pin, SET);
-	        	if (matrix_buffer[index] & (1 << 0)) HAL_GPIO_WritePin(ENM0_GPIO_Port, ENM0_Pin, 1);
-	        	if (matrix_buffer[index] & (1 << 1)) HAL_GPIO_WritePin(ENM1_GPIO_Port, ENM1_Pin, 1);
-	        	if (matrix_buffer[index] & (1 << 2)) HAL_GPIO_WritePin(ENM2_GPIO_Port, ENM2_Pin, 1);
-	        	if (matrix_buffer[index] & (1 << 3)) HAL_GPIO_WritePin(ENM3_GPIO_Port, ENM3_Pin, 1);
-	        	if (matrix_buffer[index] & (1 << 4)) HAL_GPIO_WritePin(ENM4_GPIO_Port, ENM4_Pin, 1);
-	        	if (matrix_buffer[index] & (1 << 5)) HAL_GPIO_WritePin(ENM5_GPIO_Port, ENM5_Pin, 1);
-	        	if (matrix_buffer[index] & (1 << 6)) HAL_GPIO_WritePin(ENM6_GPIO_Port, ENM6_Pin, 1);
-	        	if (matrix_buffer[index] & (1 << 7)) HAL_GPIO_WritePin(ENM7_GPIO_Port, ENM7_Pin, 1);
+
+	        	if ((matrix_buffer[index] & 0b00000001) ) HAL_GPIO_WritePin(ENM0_GPIO_Port, ENM0_Pin, 0);
+	        	if ((matrix_buffer[index] & 0b00000010) ) HAL_GPIO_WritePin(ENM1_GPIO_Port, ENM1_Pin, 0);
+	        	if ((matrix_buffer[index] & 0b00000100) ) HAL_GPIO_WritePin(ENM2_GPIO_Port, ENM2_Pin, 0);
+	        	if ((matrix_buffer[index] & 0b00001000) ) HAL_GPIO_WritePin(ENM3_GPIO_Port, ENM3_Pin, 0);
+	        	if ((matrix_buffer[index] & 0b00010000) ) HAL_GPIO_WritePin(ENM4_GPIO_Port, ENM4_Pin, 0);
+	        	if ((matrix_buffer[index] & 0b00100000) ) HAL_GPIO_WritePin(ENM5_GPIO_Port, ENM5_Pin, 0);
+	        	if ((matrix_buffer[index] & 0b01000000) ) HAL_GPIO_WritePin(ENM6_GPIO_Port, ENM6_Pin, 0);
+	        	if ((matrix_buffer[index] & 0b10000000) ) HAL_GPIO_WritePin(ENM7_GPIO_Port, ENM7_Pin, 0);
 	        	break;
 	        case 2:
 	        	HAL_GPIO_WritePin(ROW0_GPIO_Port, ROW0_Pin, SET);
@@ -106,14 +106,15 @@ void update7SEG(int index) {
 	        	HAL_GPIO_WritePin(ROW5_GPIO_Port, ROW5_Pin, SET);
 	        	HAL_GPIO_WritePin(ROW6_GPIO_Port, ROW6_Pin, SET);
 	        	HAL_GPIO_WritePin(ROW7_GPIO_Port, ROW7_Pin, SET);
-	        	if (matrix_buffer[index] & (1 << 0)) HAL_GPIO_WritePin(ENM0_GPIO_Port, ENM0_Pin, 1);
-	        	if (matrix_buffer[index] & (1 << 1)) HAL_GPIO_WritePin(ENM1_GPIO_Port, ENM1_Pin, 1);
-	        	if (matrix_buffer[index] & (1 << 2)) HAL_GPIO_WritePin(ENM2_GPIO_Port, ENM2_Pin, 1);
-	        	if (matrix_buffer[index] & (1 << 3)) HAL_GPIO_WritePin(ENM3_GPIO_Port, ENM3_Pin, 1);
-	        	if (matrix_buffer[index] & (1 << 4)) HAL_GPIO_WritePin(ENM4_GPIO_Port, ENM4_Pin, 1);
-	        	if (matrix_buffer[index] & (1 << 5)) HAL_GPIO_WritePin(ENM5_GPIO_Port, ENM5_Pin, 1);
-	        	if (matrix_buffer[index] & (1 << 6)) HAL_GPIO_WritePin(ENM6_GPIO_Port, ENM6_Pin, 1);
-	        	if (matrix_buffer[index] & (1 << 7)) HAL_GPIO_WritePin(ENM7_GPIO_Port, ENM7_Pin, 1);
+
+	        	if ((matrix_buffer[index] & 0b00000001) ) HAL_GPIO_WritePin(ENM0_GPIO_Port, ENM0_Pin, 0);
+	        	if ((matrix_buffer[index] & 0b00000010) ) HAL_GPIO_WritePin(ENM1_GPIO_Port, ENM1_Pin, 0);
+	        	if ((matrix_buffer[index] & 0b00000100) ) HAL_GPIO_WritePin(ENM2_GPIO_Port, ENM2_Pin, 0);
+	        	if ((matrix_buffer[index] & 0b00001000) ) HAL_GPIO_WritePin(ENM3_GPIO_Port, ENM3_Pin, 0);
+	        	if ((matrix_buffer[index] & 0b00010000) ) HAL_GPIO_WritePin(ENM4_GPIO_Port, ENM4_Pin, 0);
+	        	if ((matrix_buffer[index] & 0b00100000) ) HAL_GPIO_WritePin(ENM5_GPIO_Port, ENM5_Pin, 0);
+	        	if ((matrix_buffer[index] & 0b01000000) ) HAL_GPIO_WritePin(ENM6_GPIO_Port, ENM6_Pin, 0);
+	        	if ((matrix_buffer[index] & 0b10000000) ) HAL_GPIO_WritePin(ENM7_GPIO_Port, ENM7_Pin, 0);
 	        	break;
 	        case 3:
 	        	HAL_GPIO_WritePin(ROW0_GPIO_Port, ROW0_Pin, SET);
@@ -124,14 +125,15 @@ void update7SEG(int index) {
 	        	HAL_GPIO_WritePin(ROW5_GPIO_Port, ROW5_Pin, SET);
 	        	HAL_GPIO_WritePin(ROW6_GPIO_Port, ROW6_Pin, SET);
 	        	HAL_GPIO_WritePin(ROW7_GPIO_Port, ROW7_Pin, SET);
-	        	if (matrix_buffer[index] & (1 << 0)) HAL_GPIO_WritePin(ENM0_GPIO_Port, ENM0_Pin, 1);
-	        	if (matrix_buffer[index] & (1 << 1)) HAL_GPIO_WritePin(ENM1_GPIO_Port, ENM1_Pin, 1);
-	        	if (matrix_buffer[index] & (1 << 2)) HAL_GPIO_WritePin(ENM2_GPIO_Port, ENM2_Pin, 1);
-	        	if (matrix_buffer[index] & (1 << 3)) HAL_GPIO_WritePin(ENM3_GPIO_Port, ENM3_Pin, 1);
-	        	if (matrix_buffer[index] & (1 << 4)) HAL_GPIO_WritePin(ENM4_GPIO_Port, ENM4_Pin, 1);
-	        	if (matrix_buffer[index] & (1 << 5)) HAL_GPIO_WritePin(ENM5_GPIO_Port, ENM5_Pin, 1);
-	        	if (matrix_buffer[index] & (1 << 6)) HAL_GPIO_WritePin(ENM6_GPIO_Port, ENM6_Pin, 1);
-	        	if (matrix_buffer[index] & (1 << 7)) HAL_GPIO_WritePin(ENM7_GPIO_Port, ENM7_Pin, 1);
+
+	        	if ((matrix_buffer[index] & 0b00000001) ) HAL_GPIO_WritePin(ENM0_GPIO_Port, ENM0_Pin, 0);
+	        	if ((matrix_buffer[index] & 0b00000010) ) HAL_GPIO_WritePin(ENM1_GPIO_Port, ENM1_Pin, 0);
+	        	if ((matrix_buffer[index] & 0b00000100) ) HAL_GPIO_WritePin(ENM2_GPIO_Port, ENM2_Pin, 0);
+	        	if ((matrix_buffer[index] & 0b00001000) ) HAL_GPIO_WritePin(ENM3_GPIO_Port, ENM3_Pin, 0);
+	        	if ((matrix_buffer[index] & 0b00010000) ) HAL_GPIO_WritePin(ENM4_GPIO_Port, ENM4_Pin, 0);
+	        	if ((matrix_buffer[index] & 0b00100000) ) HAL_GPIO_WritePin(ENM5_GPIO_Port, ENM5_Pin, 0);
+	        	if ((matrix_buffer[index] & 0b01000000) ) HAL_GPIO_WritePin(ENM6_GPIO_Port, ENM6_Pin, 0);
+	        	if ((matrix_buffer[index] & 0b10000000) ) HAL_GPIO_WritePin(ENM7_GPIO_Port, ENM7_Pin, 0);
 	        	break;
 	        case 4:
 	        	HAL_GPIO_WritePin(ROW0_GPIO_Port, ROW0_Pin, SET);
@@ -142,14 +144,15 @@ void update7SEG(int index) {
 	        	HAL_GPIO_WritePin(ROW5_GPIO_Port, ROW5_Pin, SET);
 	        	HAL_GPIO_WritePin(ROW6_GPIO_Port, ROW6_Pin, SET);
 	        	HAL_GPIO_WritePin(ROW7_GPIO_Port, ROW7_Pin, SET);
-	        	if (matrix_buffer[index] & (1 << 0)) HAL_GPIO_WritePin(ENM0_GPIO_Port, ENM0_Pin, 1);
-	        	if (matrix_buffer[index] & (1 << 1)) HAL_GPIO_WritePin(ENM1_GPIO_Port, ENM1_Pin, 1);
-	        	if (matrix_buffer[index] & (1 << 2)) HAL_GPIO_WritePin(ENM2_GPIO_Port, ENM2_Pin, 1);
-	        	if (matrix_buffer[index] & (1 << 3)) HAL_GPIO_WritePin(ENM3_GPIO_Port, ENM3_Pin, 1);
-	        	if (matrix_buffer[index] & (1 << 4)) HAL_GPIO_WritePin(ENM4_GPIO_Port, ENM4_Pin, 1);
-	        	if (matrix_buffer[index] & (1 << 5)) HAL_GPIO_WritePin(ENM5_GPIO_Port, ENM5_Pin, 1);
-	        	if (matrix_buffer[index] & (1 << 6)) HAL_GPIO_WritePin(ENM6_GPIO_Port, ENM6_Pin, 1);
-	        	if (matrix_buffer[index] & (1 << 7)) HAL_GPIO_WritePin(ENM7_GPIO_Port, ENM7_Pin, 1);
+
+	        	if ((matrix_buffer[index] & 0b00000001) ) HAL_GPIO_WritePin(ENM0_GPIO_Port, ENM0_Pin, 0);
+	        	if ((matrix_buffer[index] & 0b00000010) ) HAL_GPIO_WritePin(ENM1_GPIO_Port, ENM1_Pin, 0);
+	        	if ((matrix_buffer[index] & 0b00000100) ) HAL_GPIO_WritePin(ENM2_GPIO_Port, ENM2_Pin, 0);
+	        	if ((matrix_buffer[index] & 0b00001000) ) HAL_GPIO_WritePin(ENM3_GPIO_Port, ENM3_Pin, 0);
+	        	if ((matrix_buffer[index] & 0b00010000) ) HAL_GPIO_WritePin(ENM4_GPIO_Port, ENM4_Pin, 0);
+	        	if ((matrix_buffer[index] & 0b00100000) ) HAL_GPIO_WritePin(ENM5_GPIO_Port, ENM5_Pin, 0);
+	        	if ((matrix_buffer[index] & 0b01000000) ) HAL_GPIO_WritePin(ENM6_GPIO_Port, ENM6_Pin, 0);
+	        	if ((matrix_buffer[index] & 0b10000000) ) HAL_GPIO_WritePin(ENM7_GPIO_Port, ENM7_Pin, 0);
 	        	break;
 	        case 5:
 	        	HAL_GPIO_WritePin(ROW0_GPIO_Port, ROW0_Pin, SET);
@@ -160,14 +163,15 @@ void update7SEG(int index) {
 	        	HAL_GPIO_WritePin(ROW5_GPIO_Port, ROW5_Pin, RESET);
 	        	HAL_GPIO_WritePin(ROW6_GPIO_Port, ROW6_Pin, SET);
 	        	HAL_GPIO_WritePin(ROW7_GPIO_Port, ROW7_Pin, SET);
-	        	if (matrix_buffer[index] & (1 << 0)) HAL_GPIO_WritePin(ENM0_GPIO_Port, ENM0_Pin, 1);
-	        	if (matrix_buffer[index] & (1 << 1)) HAL_GPIO_WritePin(ENM1_GPIO_Port, ENM1_Pin, 1);
-	        	if (matrix_buffer[index] & (1 << 2)) HAL_GPIO_WritePin(ENM2_GPIO_Port, ENM2_Pin, 1);
-	        	if (matrix_buffer[index] & (1 << 3)) HAL_GPIO_WritePin(ENM3_GPIO_Port, ENM3_Pin, 1);
-	        	if (matrix_buffer[index] & (1 << 4)) HAL_GPIO_WritePin(ENM4_GPIO_Port, ENM4_Pin, 1);
-	        	if (matrix_buffer[index] & (1 << 5)) HAL_GPIO_WritePin(ENM5_GPIO_Port, ENM5_Pin, 1);
-	        	if (matrix_buffer[index] & (1 << 6)) HAL_GPIO_WritePin(ENM6_GPIO_Port, ENM6_Pin, 1);
-	        	if (matrix_buffer[index] & (1 << 7)) HAL_GPIO_WritePin(ENM7_GPIO_Port, ENM7_Pin, 1);
+
+	        	if ((matrix_buffer[index] & 0b00000001) ) HAL_GPIO_WritePin(ENM0_GPIO_Port, ENM0_Pin, 0);
+	        	if ((matrix_buffer[index] & 0b00000010) ) HAL_GPIO_WritePin(ENM1_GPIO_Port, ENM1_Pin, 0);
+	        	if ((matrix_buffer[index] & 0b00000100) ) HAL_GPIO_WritePin(ENM2_GPIO_Port, ENM2_Pin, 0);
+	        	if ((matrix_buffer[index] & 0b00001000) ) HAL_GPIO_WritePin(ENM3_GPIO_Port, ENM3_Pin, 0);
+	        	if ((matrix_buffer[index] & 0b00010000) ) HAL_GPIO_WritePin(ENM4_GPIO_Port, ENM4_Pin, 0);
+	        	if ((matrix_buffer[index] & 0b00100000) ) HAL_GPIO_WritePin(ENM5_GPIO_Port, ENM5_Pin, 0);
+	        	if ((matrix_buffer[index] & 0b01000000) ) HAL_GPIO_WritePin(ENM6_GPIO_Port, ENM6_Pin, 0);
+	        	if ((matrix_buffer[index] & 0b10000000) ) HAL_GPIO_WritePin(ENM7_GPIO_Port, ENM7_Pin, 0);
 	        	break;
 	        case 6:
 	        	HAL_GPIO_WritePin(ROW0_GPIO_Port, ROW0_Pin, SET);
@@ -178,14 +182,15 @@ void update7SEG(int index) {
 	        	HAL_GPIO_WritePin(ROW5_GPIO_Port, ROW5_Pin, SET);
 	        	HAL_GPIO_WritePin(ROW6_GPIO_Port, ROW6_Pin, RESET);
 	        	HAL_GPIO_WritePin(ROW7_GPIO_Port, ROW7_Pin, SET);
-	        	if (matrix_buffer[index] & (1 << 0)) HAL_GPIO_WritePin(ENM0_GPIO_Port, ENM0_Pin, 1);
-	        	if (matrix_buffer[index] & (1 << 1)) HAL_GPIO_WritePin(ENM1_GPIO_Port, ENM1_Pin, 1);
-	        	if (matrix_buffer[index] & (1 << 2)) HAL_GPIO_WritePin(ENM2_GPIO_Port, ENM2_Pin, 1);
-	        	if (matrix_buffer[index] & (1 << 3)) HAL_GPIO_WritePin(ENM3_GPIO_Port, ENM3_Pin, 1);
-	        	if (matrix_buffer[index] & (1 << 4)) HAL_GPIO_WritePin(ENM4_GPIO_Port, ENM4_Pin, 1);
-	        	if (matrix_buffer[index] & (1 << 5)) HAL_GPIO_WritePin(ENM5_GPIO_Port, ENM5_Pin, 1);
-	        	if (matrix_buffer[index] & (1 << 6)) HAL_GPIO_WritePin(ENM6_GPIO_Port, ENM6_Pin, 1);
-	        	if (matrix_buffer[index] & (1 << 7)) HAL_GPIO_WritePin(ENM7_GPIO_Port, ENM7_Pin, 1);
+
+	        	if ((matrix_buffer[index] & 0b00000001) ) HAL_GPIO_WritePin(ENM0_GPIO_Port, ENM0_Pin, 0);
+	        	if ((matrix_buffer[index] & 0b00000010) ) HAL_GPIO_WritePin(ENM1_GPIO_Port, ENM1_Pin, 0);
+	        	if ((matrix_buffer[index] & 0b00000100) ) HAL_GPIO_WritePin(ENM2_GPIO_Port, ENM2_Pin, 0);
+	        	if ((matrix_buffer[index] & 0b00001000) ) HAL_GPIO_WritePin(ENM3_GPIO_Port, ENM3_Pin, 0);
+	        	if ((matrix_buffer[index] & 0b00010000) ) HAL_GPIO_WritePin(ENM4_GPIO_Port, ENM4_Pin, 0);
+	        	if ((matrix_buffer[index] & 0b00100000) ) HAL_GPIO_WritePin(ENM5_GPIO_Port, ENM5_Pin, 0);
+	        	if ((matrix_buffer[index] & 0b01000000) ) HAL_GPIO_WritePin(ENM6_GPIO_Port, ENM6_Pin, 0);
+	        	if ((matrix_buffer[index] & 0b10000000) ) HAL_GPIO_WritePin(ENM7_GPIO_Port, ENM7_Pin, 0);
 	        	break;
 	        case 7:
 	        	HAL_GPIO_WritePin(ROW0_GPIO_Port, ROW0_Pin, SET);
@@ -196,14 +201,15 @@ void update7SEG(int index) {
 	        	HAL_GPIO_WritePin(ROW5_GPIO_Port, ROW5_Pin, SET);
 	        	HAL_GPIO_WritePin(ROW6_GPIO_Port, ROW6_Pin, SET);
 	        	HAL_GPIO_WritePin(ROW7_GPIO_Port, ROW7_Pin, RESET);
-	        	if (matrix_buffer[index] & (1 << 0)) HAL_GPIO_WritePin(ENM0_GPIO_Port, ENM0_Pin, 1);
-	        	if (matrix_buffer[index] & (1 << 1)) HAL_GPIO_WritePin(ENM1_GPIO_Port, ENM1_Pin, 1);
-	        	if (matrix_buffer[index] & (1 << 2)) HAL_GPIO_WritePin(ENM2_GPIO_Port, ENM2_Pin, 1);
-	        	if (matrix_buffer[index] & (1 << 3)) HAL_GPIO_WritePin(ENM3_GPIO_Port, ENM3_Pin, 1);
-	        	if (matrix_buffer[index] & (1 << 4)) HAL_GPIO_WritePin(ENM4_GPIO_Port, ENM4_Pin, 1);
-	        	if (matrix_buffer[index] & (1 << 5)) HAL_GPIO_WritePin(ENM5_GPIO_Port, ENM5_Pin, 1);
-	        	if (matrix_buffer[index] & (1 << 6)) HAL_GPIO_WritePin(ENM6_GPIO_Port, ENM6_Pin, 1);
-	        	if (matrix_buffer[index] & (1 << 7)) HAL_GPIO_WritePin(ENM7_GPIO_Port, ENM7_Pin, 1);
+	        	if ((matrix_buffer[index] & 0b00000001) ) HAL_GPIO_WritePin(ENM0_GPIO_Port, ENM0_Pin, 0);
+	        	if ((matrix_buffer[index] & 0b00000010) ) HAL_GPIO_WritePin(ENM1_GPIO_Port, ENM1_Pin, 0);
+	        	if ((matrix_buffer[index] & 0b00000100) ) HAL_GPIO_WritePin(ENM2_GPIO_Port, ENM2_Pin, 0);
+	        	if ((matrix_buffer[index] & 0b00001000) ) HAL_GPIO_WritePin(ENM3_GPIO_Port, ENM3_Pin, 0);
+	        	if ((matrix_buffer[index] & 0b00010000) ) HAL_GPIO_WritePin(ENM4_GPIO_Port, ENM4_Pin, 0);
+	        	if ((matrix_buffer[index] & 0b00100000) ) HAL_GPIO_WritePin(ENM5_GPIO_Port, ENM5_Pin, 0);
+	        	if ((matrix_buffer[index] & 0b01000000) ) HAL_GPIO_WritePin(ENM6_GPIO_Port, ENM6_Pin, 0);
+	        	if ((matrix_buffer[index] & 0b10000000) ) HAL_GPIO_WritePin(ENM7_GPIO_Port, ENM7_Pin, 0);
+
 	        	break;
 	        // Add cases for other indices if needed
 	        default:
@@ -214,14 +220,16 @@ void update7SEG(int index) {
 
 void updateMatrixBuffer()
 {
-    matrix_buffer[0] = 0b00111100;
-    matrix_buffer[1] = 0b01000010;
-    matrix_buffer[2] = 0b01000010;
-    matrix_buffer[3] = 0b01111110;
-    matrix_buffer[4] = 0b01000010;
+	matrix_buffer[0] = 0b00000000;
+	matrix_buffer[1] = 0b00011000;
+    matrix_buffer[2] = 0b00100100;
+    matrix_buffer[3] = 0b01000010;
+    matrix_buffer[4] = 0b01111110;
     matrix_buffer[5] = 0b01000010;
     matrix_buffer[6] = 0b01000010;
-    matrix_buffer[7] = 0b00000000;
+    matrix_buffer[7] = 0b01000010;
+
+
 }
 void updateClockBuffer(){
 	led_buffer[0] = hour/10;

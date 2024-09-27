@@ -10,7 +10,7 @@
 #include "main.h"
 #include "led7.h"
 #include "software_timer.h"
-
+#include <stdint.h>
 
 extern const int MAX_LED;
 extern int index_led;
