@@ -1,0 +1,1 @@
+{"__version__":1,"totalSize":15680008,"count":83,"data":{"Core":[1,4562072],"Drivers":[1,9676530],"LAB2.bin":[0,10364],"LAB2.elf":[0,867496],"LAB2.hex":[0,29229],"LAB2.hex.asm":[0,21],"LAB2.list":[0,270396],"LAB2.map":[0,258489],"makefile":[0,3439],"objects.list":[0,1054],"objects.mk":[0,292],"sources.mk":[0,626]}}

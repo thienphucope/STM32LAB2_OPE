@@ -97,13 +97,13 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   setTimer(0, 100);
   setTimer(1, 25);
+  setTimer(2, 50);
   while (1)
   {
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
 	  if (timer_flag[0] == 1) {
-		  HAL_GPIO_TogglePin(DOT_GPIO_Port, DOT_Pin);
 		  second++;
 		  	  if (second >= 60){
 		  		  second = 0;
@@ -125,6 +125,11 @@ int main(void)
 	  		  if (index_led >= MAX_LED) index_led = 0;
 	  }// Reset the index to stay in the valid range
 
+	  if (timer_flag[2] == 1)
+	  {
+		  setTimer(2, 50);
+		  HAL_GPIO_TogglePin(DOT_GPIO_Port, DOT_Pin);
+	  }
   }
   /* USER CODE END 3 */
 }
