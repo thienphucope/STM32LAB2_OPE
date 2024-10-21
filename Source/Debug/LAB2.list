@@ -1542,8 +1542,8 @@ int main(void)
  8000d68:	685b      	ldr	r3, [r3, #4]
  8000d6a:	2b01      	cmp	r3, #1
  8000d6c:	d144      	bne.n	8000df8 <main+0x128>
-	  		  setTimer(1, 5);
- 8000d6e:	2105      	movs	r1, #5
+	  		  setTimer(1, 2);
+ 8000d6e:	2102      	movs	r1, #2
  8000d70:	2001      	movs	r0, #1
  8000d72:	f000 f94b 	bl	800100c <setTimer>
 	  		  	  	  	  	HAL_GPIO_WritePin(ENM0_GPIO_Port, ENM0_Pin, 1);

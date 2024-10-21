@@ -120,7 +120,7 @@ int main(void)
 	  }
 
 	  if (timer_flag[1] == 1){
-	  		  setTimer(1, 5);
+	  		  setTimer(1, 2);
 	  		  	  	  	  	HAL_GPIO_WritePin(ENM0_GPIO_Port, ENM0_Pin, 1);
 	  			        	HAL_GPIO_WritePin(ENM1_GPIO_Port, ENM1_Pin, 1);
 	  			        	HAL_GPIO_WritePin(ENM2_GPIO_Port, ENM2_Pin, 1);
